@@ -8,7 +8,7 @@ import { AuthProvider } from './context/AuthContext.tsx'
 import {Toaster} from 'react-hot-toast'
 import axios from 'axios'
 
-axios.defaults.baseURL= "http://localhost:3008/api/v1";//backednURL
+axios.defaults.baseURL= "https://gpt-bot-backend.vercel.app/api/v1";//backednURL
 axios.defaults.withCredentials= true;
 
 
