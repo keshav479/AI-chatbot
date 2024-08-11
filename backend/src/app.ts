@@ -1,22 +1,53 @@
-import express from "express";
-import {config} from "dotenv"; 
-import morgan from "morgan";
-import appRouter from "./routes/index.js";
-import cookieParser from "cookie-parser";
-import cors from 'cors'
+// import express, { Application, Request, Response } from 'express';
+// import {config} from "dotenv"; 
+// import morgan from "morgan";
+// import appRouter from "./routes/index.js";
+// import cookieParser from "cookie-parser";
+// import cors from 'cors'
+
+// config();
+// const app = express();
+
+// //middleware
+// // app.use(cors({origin: "https://gpt-bot-gamma.vercel.app", credentials: true}));
+// app.use(cors({ origin: 'https://gpt-bot-gamma.vercel.app' }));
+
+// // app.use(cors());
+// app.use(express.json());
+// app.use(cookieParser(process.env.COOKIE_SECRET));
+// //remove it in production
+// // app.use(morgan("dev"));
+
+// app.use("/api/v1", appRouter)
+// export default app;
+
+
+import express, { Application, Request, Response } from 'express';
+import { config } from 'dotenv'; 
+import morgan from 'morgan';
+import appRouter from './routes/index.js';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 config();
-const app = express();
+const app: Application = express();
 
-//middleware
-// app.use(cors({origin: "https://gpt-bot-gamma.vercel.app", credentials: true}));
-app.use(cors({ origin: 'https://gpt-bot-gamma.vercel.app' }));
+// CORS Configuration
+app.use(cors({
+    origin: 'https://gpt-bot-gamma.vercel.app', // Allow this origin
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+}));
 
-// app.use(cors());
+// Middleware
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
-//remove it in production
-// app.use(morgan("dev"));
 
-app.use("/api/v1", appRouter)
+// Remove it in production
+// app.use(morgan('dev'));
+
+// Routes
+app.use('/api/v1', appRouter);
+
 export default app;
