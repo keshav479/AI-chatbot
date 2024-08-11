@@ -29,6 +29,7 @@ import express from "express";
 import { config } from "dotenv";
 import cors from "cors";
 import { connectToDatabase } from "./db/connection.js";
+import appRouter from "./routes/index.js";
 
 config();
 
@@ -44,6 +45,8 @@ connectToDatabase()
     exp.listen(PORT, () => console.log("Server open and connected to database 👍"));
   })
   .catch(err => console.log(err));
+
+  exp.use("/api/v1", appRouter)
 
 // Root Route
 app.get('/', async (req, res) => {
