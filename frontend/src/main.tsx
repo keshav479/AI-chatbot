@@ -9,7 +9,7 @@ import {Toaster} from 'react-hot-toast'
 import axios from 'axios'
 
 // axios.defaults.baseURL= "https://gpt-bot-backend.vercel.app/api/v1";//backednURL
-axios.defaults.baseURL= "https://gpt-bot-backend.vercel.app";//backednURL
+axios.defaults.baseURL= "https://ai-chatbot-back.vercel.app/";//backednURL
 axios.defaults.withCredentials= true;
 
 
