@@ -10,8 +10,9 @@ const app = express();
 
 //middleware
 // app.use(cors({origin: "https://gpt-bot-gamma.vercel.app", credentials: true}));
+app.use(cors({ origin: 'https://gpt-bot-gamma.vercel.app' }));
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 //remove it in production
