@@ -32,7 +32,7 @@ import { connectToDatabase } from "./db/connection.js";
 
 config();
 
-const PORT = process.env.PORT || 3008;
+const PORT = process.env.PORT || 3004;
 const exp = express();
 
 // CORS Configuration
